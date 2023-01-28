@@ -17,11 +17,15 @@
 # include "fcntl.h"
 # include "stdio.h"
 # include "stdlib.h"
+# include "string.h"
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 20
 # endif
 
 char	*get_next_line(int fd);
+char	*get_line(int fd);
+int	verifyn(char *s);
+void	join(char *src, char *dst);
 
 #endif
