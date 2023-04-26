@@ -1,0 +1,65 @@
+i declarado, fd recebido
+fd igual a 3, funcionou
+entrou no while para printar
+gnl chamado pela primeira vez
+validacao funcionou, buffer maior que 0 e fd tambem (se for -1 e erro)
+variavel statica s abre a funcao ft_read
+array da funcao read recebe maloc do tamanho do buffer + 1
+array existe, malloc funcinou, nao retorna o null
+entrou para verificar se dentro de array existe '\n'
+verificou se a string existe, nao existe, retornou null
+retornou null e count e diferente de 0, portanto entrou no while
+count, igual a 1, recebe read do fd, armazena o valor em array
+count agora equivale a 42
+count nao e -1, portanto salta a verificacao e frees
+array recebe 42 caracteres, tem um \n no meio...
+array recebe um '\0' no final
+str (a static char do gnl) recebe free_join de str e array
+valida se s nao existe, nao existe, entao malloca 1 valor e adicion como '\0' (PRA QUE??)
+se buffer ou s nao existir, retorna null, existem entao entra para str receber um malloc do tamanho de s e buffer + 1
+strlen funciona em cima do s, que vale 0, buffer vale 42
+str recebe um malloc de 0 + 42 + 1
+str existe, salta validacao
+i recebe -1 e j 0
+se s existir, entao caso s 0 for diferente de nulo, str recebe s
+enquanto buffer 0 for diferente de nulo, entao str i (de onde estava antes) recebe buffer 
+str tamanho de s + tamanho de buffer recebe nulo para finalizar a variavel
+s recebe free, str agora e o mesmo, ainda com \n
+strchr recebe a linha, ainda com \n e procura nela omesmo
+dessa vez existe, salta o !s
+salta o c = '\0', dado ser '\n'
+enquanto s for diferente de \n aumenta, se encontrar o \0 retorna nulo por nao ter \n
+encontrou o \n, retornou para o while do read que existe um \n
+o \n ainda nao foi removido, ja tou perdido, array recebe free, mas buffer ainda tem a frase
+ah, okay, get line foi chamado agora ao entrar no get next line novamente, variavel line chama get_line com a variavel s, que e a frase
+validacao funcionou, nao retornou null porque existe s[0]
+enquanto s existir e nao for \n, i recebe recebe incremento
+i recebe 29
+str da funcao get line recebe malloc de i (29) + 2 (porque 2?)
+malloc funciona e nao retorna null, i recebe 0 e conta novamente, mas dessa vez adicionando a str aquilo que existe em i, se s terminar em \n entao str recebe isso e substitui oir \0
+str retornado pro newline ainda tem \n, embora tenha tambem nulo, separacao feita!
+line em get_next_line ja tem o seu resultado feito
+s recebe s, mas na newline que vai...
+contabilizar ate o \n
+verificar que existe e portanto nao vai dar free nem return null
+str, agora do newline, recebe malloc de strlen(S) - i(29) + 1 (retirando a parte do line, basicamente)
+str existe, entao malloc funcionou e nao retorna null
+str do newline recebe o restante de s, depois nulo e da free em s, retornando o restante da anterior frase, depois do \n
+em get_next_line, s agora vale ao restante e line a linha completa, tudo funcional!
+processo e repetido, agora, mas ja deu retorno de line
+s, ja com algo dentro, chama ft_read que vai mallocar 42 + 1 em array, posteriormente libertado
+strchr foi chamado para str, que e o restante da primeira frase em busca de um novo \n, como nao existe, retorna \n
+count diferente de 0 e str nao tem \n, entao entra no while do ft_read que vai usar o read em count de novo, armazenando em array o que encontrar (entretanto cade o restante da frase anterior? ah, esta em str)
+read continua de onde parou, entao a frase agora continua e array tem o restante do tal str da ultima frase
+array recebe \0 e str abre free join com str (antiga frase) e array
+freejoin aberto com str(s) e array(buffer)
+s existe, salta validacao
+buffer tambem existe, salta null
+str recebe malloc de s e buffer + 1
+malloc funcionou, salta o null
+enquanto s existir, caso seja diferente de 0, fica copiando de s para str
+enquanto buffer existir, caso diferente de 0, copia para str (que ja havia sido copiado, entao ultimo index) e coloca dentro de str
+str agora tem toda a frase, mais do que 42 incluse
+antigo str, s, recebe free e retorna str novo com tudo direito
+o processo agora e o mesmo e vai se repetindo ate que termine
+
