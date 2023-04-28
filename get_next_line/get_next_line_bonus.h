@@ -5,32 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfurtado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 18:33:19 by gfurtado          #+#    #+#             */
-/*   Updated: 2023/04/26 18:33:22 by gfurtado         ###   ########.fr       */
+/*   Created: 2023/04/28 17:39:32 by gfurtado          #+#    #+#             */
+/*   Updated: 2023/04/28 17:44:01 by gfurtado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
 
-# ifndef OPEN_MAX
-#  define OPEN_MAX 4096
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
 # endif
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 4000
+# ifndef OPEN_MAX
+#  define OPEN_MAX 256
 # endif
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
+
+size_t	ft_strlen(const char	*s);
+size_t	ft_strlcpy(char	*dest, const char *src, size_t size);
 
 char	*get_next_line(int fd);
-char	*ft_read(int fd, char *str);
-size_t	ft_strlen(const char *c);
+char	*ft_strdup(const char *s);
 char	*ft_strchr(const char *s, int c);
-char	*ft_free_join(char *s, char *buffer);
-char	*ft_get_line(char *s);
-char	*ft_new_line(char *s);
+char	*ft_strjoin(char *s1, char const *s2);
 
 #endif
