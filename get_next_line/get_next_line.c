@@ -51,19 +51,3 @@ char	*get_next_line(int fd)
 	s = ft_new_line(s);
 	return (line);
 }
-
-#include <fcntl.h>
-int	main(void)
-{
-	int		i;
-	int		fd;
-
-	i = 0;
-	fd = open("file.txt", O_RDONLY);
-	while (i < 6)
-	{
-		printf("%s", get_next_line(fd));
-		i++;
-	}
-	close(fd);
-}
